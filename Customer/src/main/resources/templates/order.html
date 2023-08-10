@@ -35,7 +35,7 @@
                 <div class="table-main table-responsive">
                     <table class="table">
                         <thead>
-                        <tr >
+                        <tr>
                             <th class="order-date">Order Date</th>
                             <th>Delivery Date</th>
                             <th class="price-pr">Order Status</th>
@@ -46,26 +46,32 @@
                         </thead>
                         <tbody>
                         <tr th:each="order : ${orders}">
-                            <td class="order-date">
-                                <span><b th:text="${order.orderDate}"></b></span>
-                            </td>
-                            <td class="name-pr" th:if="${order.deliveryDate != null}">
-                                <p th:text="${order.deliveryDate}"></p>
-                            </td>
-                            <td class="name-pr" th:if="${order.deliveryDate == null}">
-                                <p>PENDING ACCEPT...</p>
-                            </td>
-                            <td class="price-pr">
-                                <p th:text="${order.notes}"></p>
-                            </td>
-                            <td class="total-pr">
-                                <p style="color: red" th:text="'$' + ${order.totalPrice}"></p>
-                            </td>
-                            <td class="total-pr" style="color: black">
-                                <span>Cash</span>
-                            <td>
-                                <button class="button-cancel">Cancel</button>
-                            </td>
+                            <form th:action="@{/delete-order}" method="post">
+                                <input type="hidden" name="id" id="id" th:value="${order.id}">
+                                <td class="order-date">
+                                    <span><b th:text="${order.orderDate}"></b></span>
+                                </td>
+                                <td class="name-pr" th:if="${order.deliveryDate != null}">
+                                    <p th:text="${order.deliveryDate}"></p>
+                                </td>
+                                <td class="name-pr" th:if="${order.deliveryDate == null}">
+                                    <p>PENDING ACCEPT...</p>
+                                </td>
+                                <td class="price-pr" th:if="${order.notes == 'Shipping'}">
+                                    <p th:text="${order.notes}" style="color: green;font-weight: bolder;"></p>
+                                </td>
+                                <td class="price-pr" th:if="${order.notes == 'PENDING'}">
+                                    <p th:text="${order.notes}" style="color: orange;font-weight: bolder;"></p>
+                                </td>
+                                <td class="total-pr">
+                                    <p style="color: red" th:text="'$' + ${order.totalPrice}"></p>
+                                </td>
+                                <td class="total-pr" style="color: black">
+                                    <span>Cash</span>
+                                <td>
+                                    <button type="submit" class="btn btn-danger">Cancel</button>
+                                </td>
+                            </form>
                         </tr>
                         </tbody>
                     </table>

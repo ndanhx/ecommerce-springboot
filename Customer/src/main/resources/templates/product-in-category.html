@@ -92,7 +92,10 @@
                                                        data-toggle="tooltip" data-placement="right"
                                                        title="View"><i class="fas fa-eye"></i></a></li>
                                             </ul>
-                                            <a class="cart">Add to Cart</a>
+                                            <form th:action="@{/add-to-cart}" method="post">
+                                                <input type="hidden" name="id" th:value="${product.id}"/>
+                                                <button type="submit" class="btn hvr-hover" >Add to Cart</button>
+                                            </form>
                                         </div>
                                     </div>
                                     <div class="why-text">

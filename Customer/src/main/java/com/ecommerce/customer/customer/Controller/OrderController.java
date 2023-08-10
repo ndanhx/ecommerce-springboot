@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.security.Principal;
@@ -79,4 +80,11 @@ public class OrderController {
         orderService.saveOrder(cart);
         return "redirect:/order";
     }
+
+    @PostMapping("/delete-order")
+    public String deleteOrder(@RequestParam("id") Long orderID, Model model, Principal principal){
+        orderService.cancelOrder(orderID);
+        return "redirect:/order";
+    }
+
 }

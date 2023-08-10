@@ -31,7 +31,7 @@ public class ProductController {
             return "redirect:/login";
         }
         List<ProductDto> productDtoList = productService.findAll();
-        model.addAttribute("title", "Manage Product");
+        model.addAttribute("title", "Product");
         model.addAttribute("products", productDtoList);
         model.addAttribute("size", productDtoList.size());
         return "products";
@@ -44,7 +44,7 @@ public class ProductController {
             return "redirect:/login";
         }
         Page<ProductDto> products= productService.pageProducts(pageNo);
-        model.addAttribute("title", "Manage Products");
+        model.addAttribute("title", "Products");
         model.addAttribute("size", products.getSize());
         model.addAttribute("products", products);
         model.addAttribute("currentPage", pageNo);

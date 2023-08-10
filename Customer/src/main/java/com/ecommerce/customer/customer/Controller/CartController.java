@@ -59,7 +59,6 @@ public class CartController {
         }
         Product product = productService.findById(productId);
         Customer customer = customerService.findByUsername(principal.getName());
-        // System.out.println(">>>>>>>>>> username: "+principal.getName()+ "\nproduct: "+product.toString()+ "\n so luong" + quantity);
         ShoppingCart cart = cartService.addItemToCart(product, quantity, customer);
         return "redirect:" + request.getHeader("Referer");
     }

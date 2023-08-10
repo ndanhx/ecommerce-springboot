@@ -47,18 +47,22 @@
                 </div>
             </div>
             <div class="col-xl-7 col-lg-7 col-md-6">
-                <div class="single-product-details">
-                    <h2 th:text="${productDetail.name}"></h2>
-                    <h5 th:text=" '$' + ${productDetail.costPrice}"></h5>
-                    <h4>Short Description:</h4>
-                    <p th:text="${productDetail.description}"></p>
+                <form th:action="@{/add-to-cart}" method="post">
+                    <div class="single-product-details">
 
-                    <div class="price-box-bar">
-                        <div class="cart-and-bay-btn">
-                            <a class="btn hvr-hover" data-fancybox-close="" href="#">Add to cart</a>
+                        <h2 th:text="${productDetail.name}"></h2>
+                        <h5 th:text=" '$' + ${productDetail.costPrice}"></h5>
+                        <h4>Short Description:</h4>
+                        <p th:text="${productDetail.description}"></p>
+
+                        <div class="price-box-bar">
+                            <div class="cart-and-bay-btn">
+                                <input type="hidden" th:value="${productDetail.id}" name="id">
+                                <input type="submit" class="btn hvr-hover" value="Add to Cart">
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -80,7 +84,11 @@
                                            data-toggle="tooltip" data-placement="right"
                                            title="View"><i class="fas fa-eye"></i></a></li>
                                 </ul>
-                                <a class="cart">Add to Cart</a>
+                                <form th:action="@{/add-to-cart}" method="post">
+                                    <input type="hidden" name="id" th:value="${productRelated.id}"/>
+                                    <button type="submit" class="btn hvr-hover" >Add to Cart</button>
+                                </form>
+
                             </div>
                         </div>
                         <div class="why-text">

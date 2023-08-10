@@ -33,17 +33,6 @@ public class LoginController {
         return "login";
     }
 
-    @RequestMapping("/index")
-    public String home(Model model){
-        model.addAttribute("title", "HomePage");
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if(authentication == null || authentication instanceof AnonymousAuthenticationToken){
-            return "redirect:/login";
-        }
-
-        return  "index";
-    }
-
     @GetMapping("/register")
     public String register(Model model){
         model.addAttribute("adminDto",new AdminDto());

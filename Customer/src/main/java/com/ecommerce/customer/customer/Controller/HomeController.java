@@ -32,13 +32,9 @@ public class HomeController {
     @Autowired
     private CustomerService customerService;
 
-    @RequestMapping(value = {"/index", "/"}, method = RequestMethod.GET)
-    public String home(Model model, Principal principal, HttpSession session) {
 
-        return "home";
-    }
 
-    @GetMapping({"/home", "/trang-chu"})
+    @GetMapping({"/home", "/trang-chu", "/index", "/"})
     public String index(Model model, Principal principal, HttpSession session){
         if (principal != null){
             session.setAttribute("username", principal.getName());

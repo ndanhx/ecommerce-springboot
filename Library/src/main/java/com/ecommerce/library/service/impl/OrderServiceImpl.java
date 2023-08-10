@@ -71,11 +71,14 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void acceptOrder(Long id) {
-
+        Order order = orderRepository.getById(id);
+        order.setDeliveryDate(new Date());
+        order.setNotes("Shipping");
+        orderRepository.save(order);
     }
 
     @Override
     public void cancelOrder(Long id) {
-
+        orderRepository.deleteById(id);
     }
 }
