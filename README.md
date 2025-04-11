@@ -331,21 +331,7 @@ For testing purposes, you can use these pre-configured accounts:
 - **Admin**: 
   - Email: admin@example.com
   - Password: Admin@123
-
-## 📸 Screenshots
-
-### Home Page
-![Home Page](https://via.placeholder.com/800x450?text=Home+Page)
-
-### Property Listings
-![Property Listings](https://via.placeholder.com/800x450?text=Property+Listings)
-
-### Property Details
-![Property Details](https://via.placeholder.com/800x450?text=Property+Details)
-
-### Admin Dashboard
-![Admin Dashboard](https://via.placeholder.com/800x450?text=Admin+Dashboard)
-
+ 
 ## 🤝 Contributing
 
 We welcome contributions to improve the Apartment Rental Website. Please follow these steps:
